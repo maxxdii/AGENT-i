@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AGENT-i • Autonomous AI Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>AGENT-i</h1>
+      <div class="status-indicator {{ 'running' if mem.get('state', {}).get('mode') == 'autonomous' else 'stopped' }}">
+        <span class="status-dot"></span>
+        {{ mem.get('state', {}).get('mode', 'stopped').title() }}
+      </div>
+      <div class="controls">
+        <button class="btn btn-success" hx-post="/agent/start" hx-swap="none">
+          ▶ Start Agent
+        </button>
+        <button class="btn btn-danger" hx-post="/agent/stop" hx-swap="none">
+          ⏹ Stop Agent
+        </button>
+        <button class="btn btn-secondary" hx-get="/refresh" hx-target="#state-logs" hx-swap="innerHTML">
+          🔄 Refresh
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="grid">
+      <!-- Left Column: Tasks -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Task Queue</h2>
+          <span class="card-subtitle">Add tasks to execute</span>
+        </div>
+        
+        <!-- Task Input Form -->
+        <form class="task-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML">
+          <input 
+            type="text" 
+            name="task" 
+            class="task-input"
+            placeholder="Enter a command (e.g., 'echo hello' or 'llm: say hi')" 
+            required 
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary">
+            ➕ Add Task
+          </button>
+        </form>
+
+        <!-- Task Examples -->
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-value">{{ (mem.get('tasks', []) if mem is mapping else [])|length }}</span>
+            <span class="stat-label">Pending</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{{ (mem.get('logs', []) if mem is mapping else [])|length }}</span>
+            <span class="stat-label">Executed</span>
+          </div>
+        </div>
+
+        <!-- Current Tasks -->
+        <div id="tasks" class="task-list">
+          {% include 'partials/tasks.html' %}
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="margin-top: 20px;">
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 12px;">
+            <strong>Quick examples:</strong>
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
+                    onclick="document.querySelector('.task-input').value='echo Hello World'">
+              Shell Command
+            </button>
+            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
+                    onclick="document.querySelector('.task-input').value='llm: Write a haiku about AI'">
+              LLM Task
+            </button>
+            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
+                    onclick="document.querySelector('.task-input').value='date'">
+              System Info
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Logs & Status -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Execution Logs</h2>
+          <span class="card-subtitle">Real-time task execution history</span>
+        </div>
+        
+        <div id="state-logs" hx-get="/refresh" hx-trigger="load, every 3s" hx-swap="innerHTML">
+          {% include 'partials/state_logs.html' %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Info -->
+    <div style="text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.875rem;">
+      <p>
+        🤖 AGENT-i autonomous assistant • 
+        Prefix tasks with <code>llm:</code> for AI responses • 
+        All other tasks run as shell commands
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Auto-clear task input after successful submission
+    document.body.addEventListener('htmx:afterRequest', function(evt) {
+      if (evt.detail.elt.matches('form') && evt.detail.xhr.status === 200) {
+        evt.detail.elt.querySelector('.task-input').value = '';
+      }
+    });
+
+    // Auto-focus task input
+    document.querySelector('.task-input').focus();
+  </script>
+</body>
+</html>

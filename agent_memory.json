@@ -1,0 +1,374 @@
+{
+  "history": [
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:55:25 up 34 min,  0 user,  load average: 0.36, 0.41, 0.60\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.2 99155524 1648832 ?    Sl   00:24   1:57 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.8  5.9 4770036 485456 ?      Sl   00:26   1:07 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.7  1.6 11848068 133556 ?     Sl   00:23   0:32 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+   20122  0.5  0.3 109544 25792 pts/2    S+   00:55   0:00 python agent_core/main.py\ncodespa+    6341  0.4  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.2 99155524 1648832 ?    Sl   00:24   1:57 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.8  5.9 4770036 485456 ?      Sl   00:26   1:07 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.7  1.6 11848068 133556 ?     Sl   00:23   0:32 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+   20122  0.4  0.3 109544 25792 pts/2    S+   00:55   0:00 python agent_core/main.py\ncodespa+    6341  0.4  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "uptime",
+      "result": " 00:56:10 up 34 min,  0 user,  load average: 0.38, 0.41, 0.59\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:56:22 up 35 min,  0 user,  load average: 0.29, 0.39, 0.58\n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 21.7 99799468 1766836 ?    Sl   00:24   1:59 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.7  5.9 4770036 486736 ?      Sl   00:26   1:08 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.6  1.6 11848324 133684 ?     Rl   00:23   0:32 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.4  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.2  0.3 109544 25920 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.2 99157148 1650752 ?    Sl   00:24   2:01 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.7  5.9 4770036 486864 ?      Sl   00:26   1:08 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.6  1.6 11848324 133812 ?     Sl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.2  0.3 109544 25920 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.2 99157148 1650752 ?    Sl   00:24   2:01 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.7  5.9 4770036 486864 ?      Sl   00:26   1:08 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.6  1.6 11848324 133812 ?     Rl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.2  0.3 109544 25920 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.2 99157148 1650752 ?    Sl   00:24   2:01 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.7  5.9 4770036 486864 ?      Sl   00:26   1:08 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.6  1.6 11848324 133812 ?     Sl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.2  0.3 109544 25920 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:57:19 up 35 min,  0 user,  load average: 0.24, 0.35, 0.56\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 21.7 99799360 1766272 ?    Sl   00:24   2:03 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.6  5.9 4770036 486864 ?      Sl   00:26   1:08 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.6  1.6 11848324 133812 ?     Sl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99388 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.2  0.3 109544 26048 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:57:37 up 36 min,  0 user,  load average: 0.23, 0.35, 0.55\n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:58:04 up 36 min,  0 user,  load average: 0.15, 0.32, 0.53\n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:58:13 up 36 min,  0 user,  load average: 0.13, 0.31, 0.53\n"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:58:19 up 36 min,  0 user,  load average: 0.12, 0.30, 0.53\n"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:58:25 up 37 min,  0 user,  load average: 0.11, 0.29, 0.52\n"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 21.2 99759408 1729148 ?    Sl   00:24   2:06 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.5  6.1 4770036 497244 ?      Sl   00:26   1:09 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.5  1.6 11848324 133812 ?     Sl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99516 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.1  0.3 109544 26176 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "ps aux | sort -nrk 3,3 | head -n 5",
+      "result": "codespa+    2484  6.1 20.3 99160700 1654144 ?    Sl   00:24   2:06 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node --dns-result-order=ipv4first /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false\ncodespa+    5017  3.5  6.1 4770036 497244 ?      Sl   00:26   1:09 /usr/local/sdkman/candidates/java/current/bin/java -jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/server/sonarlint-ls.jar -stdio -analyzers /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonargo.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjava.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjavasymbolicexecution.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarjs.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarphp.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarpython.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarhtml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarxml.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonartext.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonariac.jar /home/codespace/.vscode-remote/extensions/sonarsource.sonarlint-vscode-4.29.0/analyzers/sonarlintomnisharp.jar\ncodespa+    1847  1.5  1.6 11848324 133812 ?     Sl   00:23   0:33 /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/node /vscode/bin/linux-x64/6f17636121051a53c88d3e605c491d22af2ba755/out/server-main.js --log trace --force-disable-user-env --server-data-dir /home/codespace/.vscode-remote --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /home/codespace/.vscode-remote/data/Machine/.connection-token-6f17636121051a53c88d3e605c491d22af2ba755 --extensions-download-dir /home/codespace/.vscode-remote/extensionsCache --install-builtin-extension GitHub.vscode-pull-request-github --install-builtin-extension github.github-vscode-theme --install-builtin-extension github.codespaces --do-not-sync --start-server  --enable-remote-auto-shutdown --skip-requirements-check\ncodespa+    6341  0.3  1.2 549628 99516 ?        Sl   00:27   0:07 /home/codespace/.python/current/bin/python3 /home/codespace/.vscode-remote/extensions/ms-python.python-2024.8.1/python_files/run-jedi-language-server.py\ncodespa+   20122  0.1  0.3 109544 26176 pts/2    S+   00:55   0:00 python agent_core/main.py\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "du -sh ~/Documents/* | sort -hr | head -n 10",
+      "result": ""
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:58:56 up 37 min,  0 user,  load average: 0.06, 0.27, 0.50\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "netstat -tulnp",
+      "result": "Active Internet connections (only servers)\nProto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    \ntcp        0      0 0.0.0.0:2000            0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:32837         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16635         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:16634         0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:33101         0.0.0.0:*               LISTEN      4256/node           \ntcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   \ntcp        0      0 127.0.0.1:45627         0.0.0.0:*               LISTEN      1847/node           \ntcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      -                   \ntcp6       0      0 :::2000                 :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16634               :::*                    LISTEN      -                   \ntcp6       0      0 ::1:16635               :::*                    LISTEN      -                   \ntcp6       0      0 :::2222                 :::*                    LISTEN      -                   \ntcp6       0      0 127.0.0.1:64120         :::*                    LISTEN      5017/java           \nudp        0      0 127.0.0.53:53           0.0.0.0:*                           -                   \nudp        0      0 10.0.1.18:68            0.0.0.0:*                           -                   \n"
+    },
+    {
+      "command": "df -h",
+      "result": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G   12G   19G  39% /\ntmpfs            64M     0   64M   0% /dev\nshm              64M     0   64M   0% /dev/shm\n/dev/root        29G   22G  7.8G  74% /vscode\n/dev/loop4       32G   12G   19G  39% /workspaces\n/dev/sda1        44G  3.8G   39G   9% /tmp\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    },
+    {
+      "command": "curl ifconfig.me",
+      "result": "172.203.190.65"
+    },
+    {
+      "command": "whoami",
+      "result": "codespace\n"
+    },
+    {
+      "command": "uptime",
+      "result": " 00:59:29 up 38 min,  0 user,  load average: 0.03, 0.23, 0.48\n"
+    },
+    {
+      "command": "ls -la ~/Downloads",
+      "result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n"
+    }
+  ],
+  "last_result": "ls: cannot access '/home/codespace/Downloads': No such file or directory\n",
+  "tasks": [
+    "hello",
+    "hello",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd",
+    "wyd"
+  ],
+  "logs": [
+    {
+      "timestamp": "2025-08-29T01:33:26.198433+00:00",
+      "task": "echo from autonomy",
+      "output": "from autonomy"
+    }
+  ],
+  "state": {
+    "mode": "booting",
+    "last_task": "echo from autonomy",
+    "last_output": "from autonomy"
+  }
+}

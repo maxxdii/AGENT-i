@@ -1,0 +1,68 @@
+<!-- Agent Status Section -->
+<div class="agent-status">
+  {% set state = {} %}
+  {% if mem is mapping %}
+    {% set state = mem.get('state', {}) %}
+  {% endif %}
+  
+  <div class="status-grid">
+    <div class="status-item">
+      <span class="status-label">Mode</span>
+      <span class="status-value status-{{ state.get('mode', 'unknown').lower() }}">
+        {{ state.get('mode', 'unknown').title() }}
+      </span>
+    </div>
+    
+    <div class="status-item">
+      <span class="status-label">Last Task</span>
+      <span class="status-value">{{ state.get('last_task', 'None') }}</span>
+    </div>
+    
+    {% if mem is mapping and mem.get('tasks') %}
+    <div class="status-item">
+      <span class="status-label">Queue</span>
+      <span class="status-value">{{ mem.get('tasks')|length }} pending</span>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if state.get('last_output') %}
+  <details class="output-details">
+    <summary>Last Output</summary>
+    <pre class="output-text">{{ state.get('last_output') }}</pre>
+  </details>
+  {% endif %}
+</div>
+
+<!-- Execution Logs -->
+<div class="logs-section">
+  <h3 class="logs-title">Recent Executions</h3>
+  
+  {% if logs %}
+    <div class="log-entries">
+      {% for e in logs %}
+        <div class="log-entry">
+          <div class="log-header">
+            <span class="log-time">{{ e.get('timestamp', '') }}</span>
+            <span class="log-task-badge">
+              {% if e.get('task', '').startswith('llm:') %}🤖 AI{% else %}⚡ Shell{% endif %}
+            </span>
+          </div>
+          <div class="log-task">{{ e.get('task', '') }}</div>
+          {% if e.get('output') %}
+            <div class="log-output">
+              {{ (e.get('output','') or '')[:200].replace('\n',' ') }}
+              {% if (e.get('output','') or '')|length > 200 %}...{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <p>No execution logs yet</p>
+      <span>Tasks will appear here as they're executed</span>
+    </div>
+  {% endif %}
+</div>

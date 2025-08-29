@@ -1,0 +1,7 @@
+[
+  {
+    "timestamp": "2025-08-29T00:59:35.168796+00:00",
+    "command": "echo test",
+    "output": "ok"
+  }
+]

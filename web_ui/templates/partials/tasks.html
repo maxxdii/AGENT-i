@@ -1,0 +1,22 @@
+{% set tasks = mem.get('tasks', []) if mem is mapping else [] %}
+{% if tasks %}
+  <div class="task-items">
+    {% for t in tasks %}
+      <div class="task-item">
+        <span class="task-icon">
+          {% if t.startswith('llm:') %}🤖{% else %}⚡{% endif %}
+        </span>
+        <span class="task-text">{{ t }}</span>
+        <span class="task-badge">
+          {% if t.startswith('llm:') %}AI{% else %}Shell{% endif %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">
+    <div class="empty-icon">📝</div>
+    <p>No pending tasks</p>
+    <span>Add a task above to get started</span>
+  </div>
+{% endif %}
