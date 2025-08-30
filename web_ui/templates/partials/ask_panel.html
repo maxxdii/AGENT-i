@@ -1,0 +1,40 @@
+<div class="card" id="ask-panel">
+  <div class="card-header">
+    <h2 class="card-title">Ask AI</h2>
+    <span class="card-subtitle">Direct LLM response (does not enqueue tasks)</span>
+  </div>
+  <div class="card-body">
+    {% if question %}
+      <p style="color: var(--text-muted); margin-bottom: 8px;">Question:</p>
+      <div style="background: var(--surface); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 12px; white-space: pre-wrap;">{{ question }}</div>
+    {% endif %}
+    <p style="color: var(--text-muted); margin-bottom: 8px;">Answer:</p>
+    <div style="background: var(--surface); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); min-height: 64px; white-space: pre-wrap;">{{ answer }}</div>
+    <div style="display:flex; gap:8px; margin-top:12px; flex-wrap: wrap;">
+      <form hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="showToast('Queued as LLM task', 'success')">
+        <input type="hidden" name="task" value="llm: {{ question }}" />
+        <button class="btn btn-secondary" type="submit">Queue question as LLM task</button>
+      </form>
+    </div>
+
+    {% if suggestions %}
+      <hr style="border-color: var(--border); margin: 12px 0;"/>
+      <p style="color: var(--text-muted); margin-bottom: 6px;">Suggested tasks:</p>
+      <div style="display:flex; flex-direction: column; gap:8px;">
+        {% for s in suggestions %}
+          <div style="display:flex; gap:8px; align-items:center;">
+            <code style="flex:1; background: var(--surface); padding:6px 8px; border-radius:6px; border:1px solid var(--border); overflow:auto;">{{ s }}</code>
+            <form hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="showToast('Queued 1 task', 'success')">
+              <input type="hidden" name="task" value="{{ s }}" />
+              <button class="btn btn-primary" type="submit">Queue</button>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+      <form style="margin-top:10px;" hx-post="/tasks/bulk" hx-target="#tasks" hx-swap="innerHTML" onsubmit="showToast('Queued suggested tasks', 'success')">
+        <input type="hidden" name="tasks_json" value='{{ suggestions | tojson }}' />
+        <button class="btn btn-success" type="submit">Queue All Suggested</button>
+      </form>
+    {% endif %}
+  </div>
+</div>

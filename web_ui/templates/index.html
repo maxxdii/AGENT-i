@@ -9,25 +9,105 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <h1>AGENT-i</h1>
-      <div class="status-indicator {{ 'running' if mem.get('state', {}).get('mode') == 'autonomous' else 'stopped' }}">
-        <span class="status-dot"></span>
-        {{ mem.get('state', {}).get('mode', 'stopped').title() }}
+    <!-- Toast notifications -->
+    <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+    
+  <!-- Header -->
+  <header class="header">
+      <div class="brand">
+        <div class="brand-logo">AI</div>
+        <div>
+          <div class="brand-title">AGENT-i</div>
+          <div class="brand-sub">Autonomous local operator</div>
+        </div>
       </div>
+      <div></div>
       <div class="controls">
-        <button class="btn btn-success" hx-post="/agent/start" hx-swap="none">
+        {% set _mode = (mem.get('state', {}).get('mode') if mem is mapping else 'stopped') or 'stopped' %}
+        <div class="status-indicator {{ 'running' if _mode in ['autonomous','full_auto'] else 'stopped' }}">
+          <span class="status-dot"></span>
+          {{ (_mode.replace('_',' ') if _mode else 'stopped')|title }}
+        </div>
+        <button class="btn btn-success" hx-post="/agent/start" hx-swap="none" 
+                onclick="showToast('🚀 Starting agent...', 'success')">
           ▶ Start Agent
         </button>
-        <button class="btn btn-danger" hx-post="/agent/stop" hx-swap="none">
+        <button class="btn btn-danger" hx-post="/agent/stop" hx-swap="none"
+                onclick="showToast('⏹ Stopping agent...', 'warning')">
           ⏹ Stop Agent
         </button>
-        <button class="btn btn-secondary" hx-get="/refresh" hx-target="#state-logs" hx-swap="innerHTML">
+        <button class="btn btn-secondary" hx-get="/refresh" hx-target="#state-logs" hx-swap="innerHTML"
+                onclick="showToast('🔄 Refreshing...', 'info')">
           🔄 Refresh
         </button>
+   <form style="display:inline-flex; gap:6px; align-items:center; margin-left: 10px;" 
+    hx-post="/agent/full-auto" hx-swap="none" onsubmit="showToast('🧠 Full autonomy engaged', 'success')">
+     <input name="goal" type="text" placeholder="Full Auto Goal (optional)" 
+       style="width:220px; padding:8px 10px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);"/>
+     <button class="btn btn-primary" type="submit">🎛️ Full Autonomy</button>
+   </form>
+   <form style="display:inline-flex; gap:6px; align-items:center; margin-left: 10px;" 
+    hx-post="/agent/auto" hx-swap="none" onsubmit="showToast('🤖 Auto cycle queued', 'success')">
+     <input name="steps" type="number" min="1" max="50" value="5" 
+       style="width:64px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text);"/>
+     <input name="goal" type="text" placeholder="Goal (optional)" 
+       style="width:220px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text);"/>
+     <button class="btn btn-primary" type="submit">⚙️ Auto Cycle</button>
+   </form>
       </div>
     </header>
+
+    <!-- Mode Segmented Control -->
+    <div style="display:flex; justify-content:flex-end; margin-top: 10px;">
+      <div class="segmented">
+        <form hx-post="/agent/stop" hx-swap="none" onsubmit="showToast('⏹ Stopping', 'warning')">
+          <button class="seg-item {{ 'active' if _mode=='stopped' else '' }}" type="submit">Stop</button>
+        </form>
+        <form hx-post="/agent/auto" hx-swap="none" onsubmit="showToast('🤖 Auto cycle', 'success')">
+          <input type="hidden" name="steps" value="5" />
+          <input type="hidden" name="goal" value="" />
+          <button class="seg-item {{ 'active' if _mode=='autonomous' else '' }}" type="submit">Auto</button>
+        </form>
+        <form hx-post="/agent/full-auto" hx-swap="none" onsubmit="showToast('🧠 Full Auto', 'success')">
+          <input type="hidden" name="goal" value="" />
+          <button class="seg-item {{ 'active' if _mode=='full_auto' else '' }}" type="submit">Full</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Metrics Row (cards) -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-left">
+          <div class="metric-icon">Q</div>
+          <div>
+            <p class="metric-title">Pending Tasks</p>
+            <div class="metric-value">{{ (mem.get('tasks', []) if mem is mapping else [])|length }}</div>
+          </div>
+        </div>
+        <div class="metric-sub">Queue size</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-left">
+          <div class="metric-icon">L</div>
+          <div>
+            <p class="metric-title">Log Entries</p>
+            <div class="metric-value">{{ (mem.get('logs', []) if mem is mapping else [])|length }}</div>
+          </div>
+        </div>
+        <div class="metric-sub">History</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-left">
+          <div class="metric-icon">M</div>
+          <div>
+            <p class="metric-title">Mode</p>
+            <div class="metric-value">{{ (_mode.replace('_',' ') if _mode else 'stopped')|title }}</div>
+          </div>
+        </div>
+        <div class="metric-sub">Agent state</div>
+      </div>
+    </div>
 
     <!-- Main Grid -->
     <div class="grid">
@@ -40,18 +120,28 @@
         
         <!-- Task Input Form -->
         <form class="task-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML">
-          <input 
-            type="text" 
-            name="task" 
-            class="task-input"
-            placeholder="Enter a command (e.g., 'echo hello' or 'llm: say hi')" 
-            required 
-            autocomplete="off"
-          />
-          <button type="submit" class="btn btn-primary">
-            ➕ Add Task
-          </button>
+          <div class="input-group" style="flex:1;">
+            <span class="input-icon">💡</span>
+            <input 
+              type="text" 
+              name="task" 
+              class="task-input"
+              placeholder="Enter a command (e.g., echo hello) or a natural-language task (auto LLM)" 
+              required 
+              autocomplete="off"
+            />
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button type="submit" class="btn btn-primary">
+              ➕ Add Task
+            </button>
+            <button class="btn btn-secondary" hx-include="closest form" hx-vals='{"is_llm":"1"}' type="submit"
+                    onclick="showToast('🧠 Asking AI...', 'info')">
+              💬 Ask AI
+            </button>
+          </div>
         </form>
+  <div class="help-note">Tip: natural-language entries are auto-converted to <span class="code">llm:</span> tasks if not a valid shell command.</div>
 
         <!-- Task Examples -->
         <div class="stats">
@@ -70,24 +160,59 @@
           {% include 'partials/tasks.html' %}
         </div>
 
-        <!-- Quick Actions -->
-        <div style="margin-top: 20px;">
+        <!-- Quick Actions as circle buttons -->
+        <div style="margin-top: 12px;">
           <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 12px;">
             <strong>Quick examples:</strong>
           </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
-                    onclick="document.querySelector('.task-input').value='echo Hello World'">
-              Shell Command
-            </button>
-            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
-                    onclick="document.querySelector('.task-input').value='llm: Write a haiku about AI'">
-              LLM Task
-            </button>
-            <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;" 
-                    onclick="document.querySelector('.task-input').value='date'">
-              System Info
-            </button>
+          <div class="circle-group">
+            <button type="button" class="circle-btn" title="Shell Command" onclick="document.querySelector('.task-input').value='echo Hello World'">⚡</button>
+            <button type="button" class="circle-btn primary" title="LLM Task" onclick="document.querySelector('.task-input').value='llm: Write a haiku about AI'">🤖</button>
+            <button type="button" class="circle-btn" title="System Info" onclick="document.querySelector('.task-input').value='date'">🖥️</button>
+            <!-- Inspect Repo: queues a small set of repo-inspection commands -->
+            <form hx-post="/tasks/bulk" hx-target="#tasks" hx-swap="innerHTML" onsubmit="showToast('Queued repo inspection', 'success')">
+              <input type="hidden" name="tasks_json" value='["pwd","ls -la","find . -maxdepth 2 -type d -print","du -sh * | sort -hr | head -n 20"]' />
+              <button class="circle-btn primary" type="submit" title="Inspect Repo">🔎</button>
+            </form>
+            <!-- Trace Symbol: build grep tasks from input and queue in bulk -->
+            <form id="trace-form" hx-post="/tasks/bulk" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return queueTraceTasks('trace-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="text" placeholder="symbol or name" style="width:160px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" />
+              <input type="hidden" name="tasks_json" />
+              <button class="circle-btn" type="submit" title="Trace Symbol">🧭</button>
+            </form>
+
+            <!-- GUI Control (local desktop) -->
+            <div style="flex-basis: 100%; height: 1px;"></div>
+            <span style="font-size:0.8rem; color:var(--text-muted);">GUI control (desktop only):</span>
+            <!-- Open URL -->
+            <form id="open-url-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return buildOpenUrlTask('open-url-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="text" placeholder="https://example.com" style="width:220px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" />
+              <input type="hidden" name="task" />
+              <button class="circle-btn primary" type="submit" title="Open URL">🌐</button>
+            </form>
+            <!-- Click at (x,y) -->
+            <form id="click-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return buildClickTask('click-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="number" placeholder="x" style="width:80px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" />
+              <input type="number" placeholder="y" style="width:80px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" />
+              <input type="hidden" name="task" />
+              <button class="circle-btn" type="submit" title="Click">🖱️</button>
+            </form>
+            <!-- Type text -->
+            <form id="type-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return buildTypeTask('type-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="text" placeholder="text to type" style="width:220px; padding:6px 8px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" />
+              <input type="hidden" name="task" />
+              <button class="circle-btn" type="submit" title="Type">⌨️</button>
+            </form>
+            <!-- Paste (Ctrl/Cmd+V) -->
+            <form id="paste-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return buildPasteTask('paste-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="hidden" name="task" />
+              <button class="circle-btn" type="submit" title="Paste">📋</button>
+            </form>
+            <!-- Copy (Ctrl/Cmd+C) -->
+            <form id="copy-form" hx-post="/task" hx-target="#tasks" hx-swap="innerHTML" onsubmit="return buildCopyTask('copy-form')" style="display:inline-flex; gap:6px; align-items:center;">
+              <input type="hidden" name="task" />
+              <button class="circle-btn" type="submit" title="Copy">📌</button>
+            </form>
           </div>
         </div>
       </div>
@@ -105,26 +230,173 @@
       </div>
     </div>
 
+    <!-- Ask AI Panel -->
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-header">
+        <h2 class="card-title">Ask AI</h2>
+        <span class="card-subtitle">Get a direct AI answer (no task queued)</span>
+      </div>
+      <form style="display:flex; gap:8px; padding: 16px;" hx-post="/ask" hx-target="#ask-result" hx-swap="innerHTML" onsubmit="showToast('💬 Asking AI...', 'info')">
+        <input name="q" type="text" placeholder="Ask a question..." 
+               style="flex:1; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);" required />
+        <button class="btn btn-primary" type="submit">Ask</button>
+      </form>
+      <div id="ask-result" style="padding: 0 16px 16px;">
+        {% include 'partials/ask_panel.html' with context %}
+      </div>
+    </div>
+
     <!-- Footer Info -->
-    <div style="text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.875rem;">
-      <p>
-        🤖 AGENT-i autonomous assistant • 
-        Prefix tasks with <code>llm:</code> for AI responses • 
-        All other tasks run as shell commands
-      </p>
+    <div class="footer">
+      <p>🤖 AGENT-i autonomous assistant • Prefix tasks with <span class="code">llm:</span> for AI responses • All other tasks run as shell commands</p>
+      <div id="health" hx-get="/health" hx-trigger="load, every 10s" hx-swap="outerHTML"></div>
     </div>
   </div>
 
   <script>
+    // Toast notification system
+    function showToast(message, type = 'info') {
+      const colors = { success: '#10b981', warning: '#f59e0b', info: '#3b82f6' };
+      const bg = colors[type] || colors.info;
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+        background: ${bg};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      `;
+      toast.textContent = message;
+      container.appendChild(toast);
+      
+      // Animate in
+      setTimeout(() => toast.style.transform = 'translateX(0)', 100);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => container.removeChild(toast), 300);
+      }, 3000);
+    }
+
     // Auto-clear task input after successful submission
     document.body.addEventListener('htmx:afterRequest', function(evt) {
       if (evt.detail.elt.matches('form') && evt.detail.xhr.status === 200) {
-        evt.detail.elt.querySelector('.task-input').value = '';
+        const ti = evt.detail.elt.querySelector('.task-input');
+        if (ti) ti.value = '';
+        showToast('✅ Task added successfully!', 'success');
       }
     });
 
     // Auto-focus task input
-    document.querySelector('.task-input').focus();
+    document.addEventListener('DOMContentLoaded', function() {
+      const taskInput = document.querySelector('.task-input');
+      if (taskInput) taskInput.focus();
+    });
+
+    // Handle HTMX events for better feedback
+    document.body.addEventListener('htmx:sendError', function(evt) {
+      showToast('❌ Network error. Please try again.', 'warning');
+    });
+
+    document.body.addEventListener('htmx:responseError', function(evt) {
+      showToast('⚠️ Server error. Please check logs.', 'warning');
+    });
+
+    // Build bulk grep tasks for tracing a symbol
+    function queueTraceTasks(formId) {
+      const form = document.getElementById(formId);
+      if (!form) return false;
+      const textInput = form.querySelector('input[type="text"]');
+      const hidden = form.querySelector('input[name="tasks_json"]');
+      const sym = (textInput && textInput.value || '').trim();
+      if (!sym) {
+        showToast('Enter a symbol to trace', 'warning');
+        return false;
+      }
+      // Escape quotes in symbol for safe shell usage
+      const q = sym.replace(/"/g, '\\"');
+      const tasks = [
+        `grep -R "${q}" -n .`,
+        `grep -R "def ${q}\\b" -n .`,
+        `grep -R "class ${q}\\b" -n .`
+      ];
+      hidden.value = JSON.stringify(tasks);
+      showToast(`Queued trace for: ${sym}`, 'success');
+      return true;
+    }
+
+    // Build GUI action tasks
+    function buildOpenUrlTask(formId) {
+      const f = document.getElementById(formId);
+      if (!f) return false;
+      const input = f.querySelector('input[type="text"]');
+      const hidden = f.querySelector('input[name="task"]');
+  const url = (input && input.value || '').trim();
+  if (!url) { showToast('Enter a URL', 'warning'); return false; }
+  // Shell-safe for double-quoted -c: use single quotes inside Python and escape single quotes from input
+  const q = url.replace(/'/g, "\\'");
+  hidden.value = `python -c "import webbrowser; webbrowser.open('${q}')"`;
+  showToast('Queued: open URL', 'success');
+  showGuiWarning();
+      return true;
+    }
+    function buildClickTask(formId) {
+      const f = document.getElementById(formId);
+      if (!f) return false;
+      const nums = f.querySelectorAll('input[type="number"]');
+      const hidden = f.querySelector('input[name="task"]');
+      const x = (nums[0] && nums[0].value || '').trim();
+      const y = (nums[1] && nums[1].value || '').trim();
+      if (!x || !y) { showToast('Enter x and y', 'warning'); return false; }
+      hidden.value = `python -c "import pyautogui as p; p.moveTo(${Number(x)||0},${Number(y)||0},0.5); p.click()"`;
+  showToast('Queued: click', 'success');
+  showGuiWarning();
+      return true;
+    }
+    function buildTypeTask(formId) {
+      const f = document.getElementById(formId);
+      if (!f) return false;
+      const input = f.querySelector('input[type="text"]');
+      const hidden = f.querySelector('input[name="task"]');
+  const text = (input && input.value || '').trim();
+  if (!text) { showToast('Enter text to type', 'warning'); return false; }
+  const q = text.replace(/'/g, "\\'");
+  hidden.value = `python -c "import pyautogui as p; p.typewrite('${q}', interval=0.05)"`;
+      showToast('Queued: type text', 'success');
+      showGuiWarning();
+      return true;
+    }
+    function buildPasteTask(formId) {
+      const f = document.getElementById(formId);
+      if (!f) return false;
+      const hidden = f.querySelector('input[name="task"]');
+      // Use platform check in Python to choose the right modifier key
+      hidden.value = `python -c "import pyautogui as p, sys; p.hotkey('command' if sys.platform=='darwin' else 'ctrl','v')"`;
+      showToast('Queued: paste', 'success');
+      showGuiWarning();
+      return true;
+    }
+    function buildCopyTask(formId) {
+      const f = document.getElementById(formId);
+      if (!f) return false;
+      const hidden = f.querySelector('input[name="task"]');
+      hidden.value = `python -c "import pyautogui as p, sys; p.hotkey('command' if sys.platform=='darwin' else 'ctrl','c')"`;
+      showToast('Queued: copy', 'success');
+      showGuiWarning();
+      return true;
+    }
+    function showGuiWarning() {
+      const k = 'guiWarned';
+      if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(k) === '1') return;
+      if (typeof sessionStorage !== 'undefined') sessionStorage.setItem(k,'1');
+      showToast('GUI actions require a desktop session (X11/macOS/Windows). They won\'t work in headless.', 'warning');
+    }
   </script>
 </body>
 </html>
